@@ -144,11 +144,25 @@ footer {
   .grid-hoje .vento {
     grid-column: span 1;
   }
+
+  .grid-dias {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
 }
 
 @media (min-width: 900px) {
   .grid-meio {
     grid-template-columns: 60% 1fr;
+  }
+
+  .fixo {
+    top: 3vh;
+    right: 0px;
+    width: auto;
+  }
+
+  .bloco-form {
+    border-radius: 4px 0 0 4px;
   }
 }
 
