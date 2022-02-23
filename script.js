@@ -109,7 +109,9 @@ function mostrarTempo(cidade, data) {
   descricao.innerText = data.description;
 
   // Carrega temperaturas
-  temperaturas[0].innerText = formatarValor(data.temperature);
+  const tempHoje = formatarValor(data.temperature);
+  temperaturas[0].innerText = tempHoje;
+  atualizarImagem(Number(tempHoje));
 
   const tempsDias = data.forecast.map((dia) => formatarValor(dia.temperature));
   for (let i = 1; i < temperaturas.length; i++) {
@@ -144,3 +146,24 @@ form.addEventListener("submit", (e) => {
   form["cidade"].value = "";
   ocultarForm();
 });
+
+// lida com a mudanca de fundo de acordo com temperatura
+const body = document.querySelector("body");
+function atualizarImagem(temp) {
+  if (temp <= 0) {
+    body.style.background = "url(./img/frio.jpg)";
+  } else if (temp > 0 && temp <= 25) {
+    body.style.background = "url(./img/comum.jpg)";
+  } else if (temp > 25) {
+    body.style.background = "url(./img/calor.jpg)";
+  } else {
+    body.style.background = "url(./img/default.jpg)";
+  }
+  body.style.backgroundPosition = "center";
+  body.style.backgroundRepeat = "no-repeat";
+  body.style.backgroundSize = "cover";
+  body.style.backgroundAttachment = "fixed";
+}
+
+// Primeira execucao
+carregarTempo("rio-de-janeiro");
