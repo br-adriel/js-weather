@@ -51,8 +51,52 @@ async function carregarTempo(cidade) {
     const url = `https://goweather.herokuapp.com/weather/${cidade}`;
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data);
+    mostrarTempo(cidade, data);
   } catch (err) {
     console.log(err);
+  }
+}
+
+function formatarValor(valor = "") {
+  let aux = valor.split(" ")[0];
+
+  if (aux === "") {
+    return "--";
+  }
+
+  aux = aux.split("");
+  if (aux[0] === "+") {
+    aux.shift();
+  }
+  return aux.join("");
+}
+
+// Funcao responsavel por mostrar as informacaoes
+const cid = document.getElementById("cidade");
+const descricao = document.getElementById("descricao");
+const temperaturas = [...document.querySelectorAll(".temp")];
+const ventos = [...document.querySelectorAll(".veloc-vento")];
+
+function mostrarTempo(cidade, data) {
+  // Carrega nome da cidade
+  cid.innerText = cidade;
+
+  // Carrega descricao da previsao
+  descricao.innerText = data.description;
+
+  // Carrega temperaturas
+  temperaturas[0].innerText = formatarValor(data.temperature);
+
+  const tempsDias = data.forecast.map((dia) => formatarValor(dia.temperature));
+  for (let i = 1; i < temperaturas.length; i++) {
+    temperaturas[i].innerText = tempsDias[i - 1];
+  }
+
+  // Carrega velocidade dos ventos
+  ventos[0].innerText = formatarValor(data.wind);
+
+  const ventoDias = data.forecast.map((dia) => formatarValor(dia.wind));
+  for (let i = 1; i < ventos.length; i++) {
+    ventos[i].innerText = ventoDias[i - 1];
   }
 }
