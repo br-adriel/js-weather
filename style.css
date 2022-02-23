@@ -244,6 +244,10 @@ footer {
   align-items: center;
 }
 
+.tecnologias p {
+  text-align: center;
+}
+
 @media (min-width: 600px) {
   .grid-hoje {
     grid-template: 1fr 2fr / repeat(2, 1fr);
@@ -264,6 +268,10 @@ footer {
 
   .tecnologias {
     align-items: flex-start;
+  }
+
+  .tecnologias p {
+    text-align: left;
   }
 }
 
