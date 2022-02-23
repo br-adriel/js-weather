@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div id="content">
+      <main>
+        <div class="grid-meio">
+          <div class="grid-hoje">
+            <div class="bloco info">
+              <h2 id="cidade">Cidade</h2>
+              <h3 id="descricao">Parcialmente nublado</h3>
+            </div>
+            <div class="bloco temperatura">
+              <i class="bi bi-thermometer-half" title="Temperature"></i>
+              <p class="temp">30</p>
+              <span class="unidade">°C</span>
+            </div>
+            <div class="bloco vento">
+              <i class="bi bi-wind" title="Wind"></i>
+              <p class="veloc-vento">23</p>
+              <span class="unidade">Km/h</span>
+            </div>
+          </div>
+        </div>
+        <div class="grid-dias">
+          <div class="dia1 bloco"></div>
+          <div class="dia2 bloco"></div>
+          <div class="dia3 bloco"></div>
+        </div>
+      </main>
+      <footer class="bloco"></footer>
+    </div>
+  </body>
+</html>
