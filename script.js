@@ -23,6 +23,7 @@ for (let i = 1; i < 3; i++) {
 // Visualização do form de localizacao
 const btnLocalizacao = document.getElementById("btnLocalizacao");
 const divForm = document.querySelector(".bloco-form");
+divForm.style.display = "none";
 
 btnLocalizacao.addEventListener("click", () => {
   if (divForm.style.display === "none") {
