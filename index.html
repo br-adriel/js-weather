@@ -11,22 +11,22 @@
   </head>
   <body>
     <div class="fixo">
+      <div>
+        <button id="btnLocalizacao">
+          <i class="bi bi-geo-alt"></i>
+        </button>
+      </div>
       <div class="bloco-form bloco">
         <h4>Change location</h4>
         <form action="" id="formLocalizacao">
           <label for="inputCidade">City:</label>
           <div>
-            <input type="text" id="inputCidade" name="cidade" />
+            <input type="text" id="inputCidade" name="cidade" minlength="3" />
             <button type="submit">
               <i class="bi bi-search" title="Search"></i>
             </button>
           </div>
         </form>
-      </div>
-      <div>
-        <button id="btnLocalizacao">
-          <i class="bi bi-geo-alt"></i>
-        </button>
       </div>
     </div>
 
