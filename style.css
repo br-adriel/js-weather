@@ -22,6 +22,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   padding: 16px;
 }
 
@@ -59,8 +60,8 @@ main {
   font-size: 3.5rem;
 }
 
-.grid-hoje .temperatura,
-.grid-hoje .vento {
+.temperatura,
+.vento {
   display: flex;
   font-size: 4.2rem;
   justify-content: center;
@@ -69,7 +70,7 @@ main {
   position: relative;
 }
 
-.grid-hoje .unidade {
+.unidade {
   font-size: 1.5rem;
   position: absolute;
   bottom: 16px;
@@ -77,9 +78,42 @@ main {
 }
 
 .grid-dias {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+}
+
+.grid-dias .dia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grid-dias .dia h4 {
+  font-size: 1.3rem;
+}
+
+.grid-dias .dados {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.grid-dias .temperatura,
+.grid-dias .vento {
+  font-size: 3rem;
+  position: relative;
+  padding-top: 8px;
+  padding-bottom: 24px;
+  padding-right: 16px;
+}
+
+.grid-dias .unidade {
+  font-size: 1.2rem;
+  bottom: 0;
+  right: 0;
 }
 
 .bloco {
