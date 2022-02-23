@@ -39,7 +39,7 @@ main {
 .grid-meio {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   margin-top: 30vh;
 }
 
@@ -80,7 +80,7 @@ main {
 .grid-dias {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 16px;
 }
 
@@ -127,4 +127,16 @@ main {
 
 footer {
   width: min(100%, 1280px);
+}
+
+@media (min-width: 900px) {
+  .grid-meio {
+    grid-template-columns: 60% 1fr;
+  }
+}
+
+@media (min-width: 1280px) {
+  .grid-meio {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
