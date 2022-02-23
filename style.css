@@ -291,9 +291,6 @@ footer {
     animation: slideInRight;
     animation-duration: 1s;
   }
-
-  footer {
-  }
 }
 
 @media (min-width: 1280px) {
