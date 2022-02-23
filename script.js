@@ -51,9 +51,27 @@ async function carregarTempo(cidade) {
     const url = `https://goweather.herokuapp.com/weather/${cidade}`;
     const response = await fetch(url);
     const data = await response.json();
-    mostrarTempo(cidade, data);
+
+    if (!response.ok || data.temperature === "") {
+      throw Error("City not found");
+    }
+
+    let nomeCidade = cidade.split("-");
+    nomeCidade = nomeCidade.map((nome) => {
+      nome = nome.toLowerCase();
+      nome = nome.split("");
+      nome[0] = nome[0].toUpperCase();
+      return nome.join("");
+    });
+    nomeCidade = nomeCidade.join(" ");
+
+    mostrarTempo(nomeCidade, data);
   } catch (err) {
-    console.log(err);
+    if (err.message === "City not found") {
+      mostrarErro(err.message);
+    } else {
+      mostrarErro("An error has occurred");
+    }
   }
 }
 
@@ -99,4 +117,11 @@ function mostrarTempo(cidade, data) {
   for (let i = 1; i < ventos.length; i++) {
     ventos[i].innerText = ventoDias[i - 1];
   }
+}
+
+function mostrarErro(mensagem = "") {
+  cid.innerText = "Error";
+
+  // Carrega descricao da previsao
+  descricao.innerText = mensagem;
 }
