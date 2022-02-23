@@ -25,19 +25,25 @@ const btnLocalizacao = document.getElementById("btnLocalizacao");
 const divForm = document.querySelector(".bloco-form");
 divForm.style.display = "none";
 
+function exibirForm() {
+  btnLocalizacao.children[0].classList.remove("bi-geo-alt");
+  btnLocalizacao.children[0].classList.add("bi-arrow-left");
+  btnLocalizacao.children[0].setAttribute("title", "Return");
+  divForm.style.display = "flex";
+}
+
+function ocultarForm() {
+  btnLocalizacao.children[0].classList.remove("bi-arrow-left");
+  btnLocalizacao.children[0].classList.add("bi-geo-alt");
+  btnLocalizacao.children[0].setAttribute("title", "Change location");
+  divForm.style.display = "none";
+}
+
 btnLocalizacao.addEventListener("click", () => {
   if (divForm.style.display === "none") {
-    btnLocalizacao.children[0].classList.remove("bi-geo-alt");
-    btnLocalizacao.children[0].classList.add("bi-arrow-left");
-    btnLocalizacao.children[0].setAttribute("title", "Return");
-
-    divForm.style.display = "flex";
+    exibirForm();
   } else {
-    btnLocalizacao.children[0].classList.remove("bi-arrow-left");
-    btnLocalizacao.children[0].classList.add("bi-geo-alt");
-    btnLocalizacao.children[0].setAttribute("title", "Change location");
-
-    divForm.style.display = "none";
+    ocultarForm();
   }
 });
 
@@ -125,3 +131,16 @@ function mostrarErro(mensagem = "") {
   // Carrega descricao da previsao
   descricao.innerText = mensagem;
 }
+
+// lida com a troca de localizacao via form
+const form = document.getElementById("formLocalizacao");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  let novaCidade = form["cidade"].value.toLowerCase();
+  novaCidade = novaCidade.split(" ").join("-");
+  carregarTempo(novaCidade);
+
+  form["cidade"].value = "";
+  ocultarForm();
+});
