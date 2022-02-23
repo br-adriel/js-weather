@@ -174,5 +174,40 @@ function atualizarImagem(temp) {
   body.style.backgroundAttachment = "fixed";
 }
 
+// Lida com a mudança de unidade
+const btnUnidade = document.getElementById("btnUnidade");
+const unidades = [...document.getElementsByClassName("unidade-t")];
+
+btnUnidade.addEventListener("click", () => {
+  if (btnUnidade.innerText === "°F") {
+    unidades.map((uni) => (uni.innerText = "°F"));
+    temperaturas.map((temp) => {
+      if (temp.innerText !== "--") {
+        temp.innerText = cParaF(Number(temp.innerText)).toFixed(1);
+      }
+    });
+
+    btnUnidade.innerText = "°C";
+    btnUnidade.setAttribute("title", "Display using Celsius");
+  } else {
+    unidades.map((uni) => (uni.innerText = "°C"));
+    temperaturas.map((temp) => {
+      if (temp.innerText !== "--") {
+        temp.innerText = fParaC(Number(temp.innerText)).toFixed(0);
+      }
+    });
+
+    btnUnidade.innerText = "°F";
+    btnUnidade.setAttribute("title", "Display using Fahrenheit");
+  }
+});
+
+function cParaF(celsius) {
+  return (celsius * 9) / 5 + 32;
+}
+
+function fParaC(fahre) {
+  return ((fahre - 32) * 5) / 9;
+}
 // Primeira execucao
 carregarTempo("rio-de-janeiro");
