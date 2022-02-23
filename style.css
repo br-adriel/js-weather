@@ -52,14 +52,17 @@ input {
   padding: 6px;
 }
 
-#btnLocalizacao {
+#btnLocalizacao,
+#btnUnidade {
   background: rgba(245, 245, 244, 0.7);
   backdrop-filter: blur(6px);
-  border-radius: 4px 0 0 4px;
   margin-bottom: 8px;
   animation: slideInRight 1s;
 }
 
+#btnLocalizacao {
+  border-radius: 4px 0 0 4px;
+}
 .fixo {
   position: fixed;
   width: 100%;
