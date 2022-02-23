@@ -12,6 +12,18 @@
   font-family: "Quicksand", sans-serif;
 }
 
+a {
+  color: #253c78;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #28536b;
+  text-decoration: underline;
+}
+
 .bloco {
   background: rgba(245, 245, 244, 0.7);
   backdrop-filter: blur(6px);
@@ -205,6 +217,31 @@ main {
 
 footer {
   width: min(100%, 1280px);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.perfil {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 1.1rem;
+}
+
+.perfil .social {
+  display: flex;
+  gap: 8px;
+  font-size: 1.3rem;
+}
+
+.tecnologias {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
 }
 
 @media (min-width: 600px) {
@@ -219,6 +256,14 @@ footer {
 
   .grid-dias {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+
+  footer {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .tecnologias {
+    align-items: flex-start;
   }
 }
 
@@ -237,6 +282,9 @@ footer {
     border-radius: 4px 0 0 4px;
     animation: slideInRight;
     animation-duration: 1s;
+  }
+
+  footer {
   }
 }
 
