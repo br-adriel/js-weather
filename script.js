@@ -39,3 +39,7 @@ btnLocalizacao.addEventListener("click", () => {
     divForm.style.display = "none";
   }
 });
+
+// Carrega footer dinamicamente
+const footer = document.getElementById("footer-p");
+footer.innerText = `Adriel Faria, ${DATA_HOJE.getFullYear()}`;
