@@ -54,6 +54,7 @@ footer.innerText = `Adriel Faria, ${DATA_HOJE.getFullYear()}`;
 // Funcao responsavel por carregar informacaoes de tempo
 async function carregarTempo(cidade) {
   try {
+    mostrarCarregamento();
     const url = `https://goweather.herokuapp.com/weather/${cidade}`;
     const response = await fetch(url);
     const data = await response.json();
@@ -129,9 +130,17 @@ function mostrarTempo(cidade, data) {
 
 function mostrarErro(mensagem = "") {
   cid.innerText = "Error";
-
-  // Carrega descricao da previsao
   descricao.innerText = mensagem;
+}
+
+function mostrarCarregamento() {
+  cid.innerText = "Loading";
+  descricao.innerText = "Please wait...";
+
+  temperaturas.map((t) => (t.innerText = "--"));
+  ventos.map((t) => (t.innerText = "--"));
+
+  atualizarImagem(undefined);
 }
 
 // lida com a troca de localizacao via form
