@@ -44,3 +44,15 @@ btnLocalizacao.addEventListener("click", () => {
 // Carrega footer dinamicamente
 const footer = document.getElementById("footer-p");
 footer.innerText = `Adriel Faria, ${DATA_HOJE.getFullYear()}`;
+
+// Funcao responsavel por carregar informacaoes de tempo
+async function carregarTempo(cidade) {
+  try {
+    const url = `https://goweather.herokuapp.com/weather/${cidade}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data);
+  } catch (err) {
+    console.log(err);
+  }
+}
