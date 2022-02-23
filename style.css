@@ -45,7 +45,7 @@ main {
 
 .grid-hoje {
   display: grid;
-  grid-template: 1fr 2fr / repeat(2, 1fr);
+  grid-template: 1fr 1.5fr 1.5fr / repeat(2, 1fr);
   gap: 16px;
 }
 
@@ -66,8 +66,13 @@ main {
   font-size: 4.2rem;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
   position: relative;
+}
+
+.grid-hoje .temperatura,
+.grid-hoje .vento {
+  grid-column: span 2;
 }
 
 .unidade {
@@ -80,7 +85,7 @@ main {
 .grid-dias {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, 1fr);
   gap: 16px;
 }
 
@@ -88,6 +93,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 12px;
 }
 
 .grid-dias .dia h4 {
@@ -98,7 +104,7 @@ main {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: 8px;
 }
 
 .grid-dias .temperatura,
@@ -127,6 +133,17 @@ main {
 
 footer {
   width: min(100%, 1280px);
+}
+
+@media (min-width: 600px) {
+  .grid-hoje {
+    grid-template: 1fr 2fr / repeat(2, 1fr);
+  }
+
+  .grid-hoje .temperatura,
+  .grid-hoje .vento {
+    grid-column: span 1;
+  }
 }
 
 @media (min-width: 900px) {
