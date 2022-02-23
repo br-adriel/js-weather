@@ -45,6 +45,7 @@ input {
   backdrop-filter: blur(10px);
   border-radius: 4px 0 0 4px;
   margin-bottom: 8px;
+  animation: slideInRight 1s;
 }
 
 .fixo {
@@ -64,6 +65,8 @@ input {
   flex-direction: column;
   border-radius: 4px 4px 0 0;
   gap: 8px;
+  animation: slideInUp;
+  animation-duration: 0.5s;
 }
 
 .bloco-form h4 {
@@ -232,6 +235,8 @@ footer {
 
   .bloco-form {
     border-radius: 4px 0 0 4px;
+    animation: slideInRight;
+    animation-duration: 1s;
   }
 }
 
